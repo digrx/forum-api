@@ -1,3 +1,5 @@
+const DetailComments = require('../../Domains/comments/entities/DetailComments');
+
 class GetThreadUseCase {
   constructor({ threadRepository, commentRepository }) {
     this._threadRepository = threadRepository;
@@ -9,15 +11,8 @@ class GetThreadUseCase {
     threaddata.username = threaddata.owner;
     delete threaddata.owner;
     const commentsdata = await this._commentRepository.getComment(useCasePayload);
-    const comments = commentsdata.map((ubah) => {
-      const _comment = {};
-      _comment.id = ubah.id;
-      _comment.username = ubah.owner;
-      _comment.date = ubah.date;
-      _comment.content = (ubah.deleted) ? '**komentar telah dihapus**' : ubah.content;
-      return _comment;
-    });
-    threaddata.comments = comments;
+    threaddata.comments = commentsdata.map((data) => new DetailComments(data));
+
     return threaddata;
   }
 }

@@ -76,7 +76,7 @@ describe('CommentRepositoryPostgres', () => {
       const commentRepositoryPostgres = new CommentRepositoryPostgres(pool);
       const commentId = 'comment-147147';
 
-      await expect(commentRepositoryPostgres.findComment(commentId))
+      await expect(commentRepositoryPostgres.verifyCommentAvailabilty(commentId))
         .resolves.not.toThrowError(NotFoundError);
     });
 
@@ -86,7 +86,7 @@ describe('CommentRepositoryPostgres', () => {
       await UsersTableTestHelper.addUser({ id: 'user-hanif', username: 'hanif' });
       const commentRepositoryPostgres = new CommentRepositoryPostgres(pool);
 
-      await expect(commentRepositoryPostgres.findComment('comment-147147')).rejects.toThrowError(NotFoundError);
+      await expect(commentRepositoryPostgres.verifyCommentAvailabilty('comment-147147')).rejects.toThrowError(NotFoundError);
     });
   });
 

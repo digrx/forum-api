@@ -10,7 +10,7 @@ class AddComment {
   }
 
   _verifyPayload({ thread, content, owner }) {
-    if (!thread || !content || !owner ) {
+    if (!thread || !content || !owner) {
       throw new Error('ADD_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY');
     }
 

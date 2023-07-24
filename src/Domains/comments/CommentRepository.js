@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class CommentRepository {
   async addComment(addComment) {
     throw new Error('COMMENT_REPOSITORY.METHOD_NOT_IMPLEMENTED');
@@ -7,7 +8,7 @@ class CommentRepository {
     throw new Error('COMMENT_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 
-  async findComment(commentId) {
+  async verifyCommentAvailabilty(commentId) {
     throw new Error('COMMENT_REPOSITORY.METHOD_NOT_IMPLEMENTED');
   }
 

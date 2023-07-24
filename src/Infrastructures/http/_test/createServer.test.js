@@ -47,7 +47,7 @@ describe('HTTP server', () => {
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(200);
-      expect(responseJson.value).toEqual('Selamat datang di forum api app');
+      expect(responseJson.value).toEqual('Selamat datang di forum api v2');
     });
   });
 });
